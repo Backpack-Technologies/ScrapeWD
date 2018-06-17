@@ -1,0 +1,52 @@
+{
+  "name": "scraper-http",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node src/fastify-server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "node": "node_modules/.bin/babel-node",
+    "watch": "node_modules/.bin/babel-watch",
+    "lint": "node_modules/.bin/eslint .",
+    "flow": "node_modules/flow-bin/cli.js",
+    "build": "node_modules/.bin/babel src/ -d lib/ --copy-files",
+    "prune": "npm prune --production"
+  },
+  "dependencies": {
+    "nickjs": "^0.3.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.10.3",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "escope": "^3.6.0",
+    "eslint": "^4.17.0",
+    "eslint-config-backpack": "^1.0.0",
+    "eslint-config-semistandard": "^12.0.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-flowtype": "^2.44.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "babel": {
+    "presets": [
+      "node6",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-flow-strip-types",
+      "transform-class-properties",
+      "transform-es2015-modules-commonjs"
+    ]
+  }
+}
