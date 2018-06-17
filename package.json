@@ -12,6 +12,9 @@
     "prune": "npm prune --production"
   },
   "dependencies": {
+    "chrome-launcher": "^0.10.2",
+    "chrome-remote-interface": "^0.25.6",
+    "chromium": "^1.0.2",
     "nickjs": "^0.3.6"
   },
   "devDependencies": {

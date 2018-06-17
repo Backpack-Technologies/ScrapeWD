@@ -1,6 +1,23 @@
 const Nick = require("nickjs");
+const chromium = require("chromium");
+const chromeLauncher = require("chrome-launcher");
+const CDP = require("chrome-remote-interface");
+
+process.env["CHROME_PATH"] = chromium.path;
 
 exports.scrapeWD = (req, res) => {
+  const start = async function() {
+    async function launchChrome() {
+      return await chromeLauncher.launch({
+        chromeFlags: ["--headless"]
+      });
+    }
+    const chrome = await launchChrome();
+    const protocol = await CDP({
+      port: chrome.port
+    });
+  };
+
   const mapRequests = function(asins) {
     const batchRequests = asins.map(asin => scrape(asin));
 
@@ -100,6 +117,7 @@ exports.scrapeWD = (req, res) => {
       });
   }
 
+  start();
   const asins = req.body.asins || [];
   if (asins.length === 0) {
     res.status(400).send("No message defined!");
